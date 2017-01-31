@@ -1,0 +1,23 @@
+<target name="compile" depends="clean">
+           <echo>my first target1</echo>
+           <javac srcdir="." destdir="."/>
+      </target>
+
+
+  <target name="jar" depends="compile">
+           <mkdir dir="./jarfile"/>
+           <jar destfile="./jarfile/tekno.jar" basedir=".">
+           <manifest>
+           
+           	<attribute name="main-class" value="sample"/>
+           
+           	</manifest>
+       </jar>
+
+   </target>
+   
+     
+
+<target name="run" depends="jar" >
+           <echo>run block executed</echo>
+           <java jar="./practise/jarfile/tekno.jar" fork="true" />
